@@ -1,26 +1,30 @@
 @echo off
-chcp 65001 >nul
+cd /d "%~dp0"
 set "PATH=C:\Users\AmirRF\AppData\Local\hermes\tools\git-2.53.0+3-win32-x64\cmd;%PATH%"
+cls
 echo ========================================================
-echo        HistoriLex - ارسال خودکار به گیت‌هاب
+echo          HistoriLex - Push to GitHub
 echo ========================================================
 echo.
-set /p REPO="آدرس مخزن گیت‌هاب خود را وارد کنید (مثال: https://github.com/YourName/historilex.git): "
-if "%REPO%"=="" (
-    echo آدرس وارد نشد! لطفاً دوباره اجرا کنید.
+set "REPO="
+set /p "REPO=Paste your GitHub repository URL: "
+if not defined REPO (
+    echo.
+    echo Error: No URL was entered!
+    echo.
     pause
     exit /b
 )
 git remote remove origin 2>nul
 git remote add origin %REPO%
 git branch -M main
-echo در حال ارسال به گیت‌هاب...
+echo.
+echo Pushing files to GitHub...
+echo.
 git push -u origin main
 echo.
 echo ========================================================
-echo با موفقیت به گیت‌هاب ارسال شد!
-echo حالا به صفحه مخزن در گیت‌هاب بروید:
-echo 1. روی تب Actions کلیک کنید.
-echo 2. بعد از اتمام بیلد، در بخش Artifacts فایل HistoriLex-APK را دانلود کنید.
+echo Done! Check the result above.
+echo If it asks you to sign in, complete the browser login.
 echo ========================================================
 pause
