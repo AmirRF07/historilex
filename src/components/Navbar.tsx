@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, streak }
   return (
     <>
       {/* Top Header */}
-      <header className="sticky top-0 z-30 w-full backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 px-4 py-3">
+      <header className="sticky top-0 z-30 w-full backdrop-blur-md bg-slate-950/90 border-b border-slate-800/80 px-4 pt-safe-top md:pt-3 pb-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Logo size="md" />
 

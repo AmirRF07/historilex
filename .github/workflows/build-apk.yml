@@ -71,9 +71,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: HistoriLex-Debug.apk
-          tag_name: v1.0.0
-          name: "HistoriLex Android APK v1.0.0"
-          body: "دانلود مستقیم فایل نصبی اپلیکیشن تاریخ‌واژه (HistoriLex) برای گوشی‌های اندروید."
+          tag_name: v1.0.1
+          name: "HistoriLex Android APK v1.0.1"
+          body: "آپدیت نسخه ۱.۰.۱: رفع مشکل تداخل نوار وضعیت اندروید با سربرگ، فعال‌سازی موتور صوتی بومی اندروید (TTS) و لودینگ فوق‌سریع آفلاین فونت‌ها."
           prerelease: false
           make_latest: true
         env:
