@@ -1,0 +1,23 @@
+{
+  "name": "HistoriLex | تاریخ‌واژه",
+  "short_name": "تاریخ‌واژه",
+  "description": "واژه‌نامه تخصصی تاریخ ایران پس از اسلام و تاریخ‌نگاری علمی",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
