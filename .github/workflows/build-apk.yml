@@ -30,6 +30,11 @@ jobs:
           distribution: 'zulu'
           java-version: '21'
 
+      - name: Accept Android SDK Licenses & Install Platform 36
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-36" || true
+
       - name: Install dependencies
         run: npm ci
 
@@ -46,6 +51,7 @@ jobs:
         run: chmod +x ./android/gradlew
 
       - name: Build Android Debug APK
+        id: build
         run: |
           cd android
           ./gradlew assembleDebug --no-daemon --stacktrace
@@ -61,11 +67,14 @@ jobs:
           path: HistoriLex-Debug.apk
           retention-days: 30
 
-      - name: Create GitHub Release with APK
+      - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
         with:
           files: HistoriLex-Debug.apk
           tag_name: v1.0.0
           name: "HistoriLex Android APK v1.0.0"
-          body: "دانلود فایل نصبی اپلیکیشن تاریخ‌واژه (HistoriLex) برای گوشی‌های اندروید."
+          body: "دانلود مستقیم فایل نصبی اپلیکیشن تاریخ‌واژه (HistoriLex) برای گوشی‌های اندروید."
+          prerelease: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
