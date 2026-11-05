@@ -1,0 +1,8 @@
+{
+  "appId": "com.historilex.app",
+  "appName": "HistoriLex",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
